@@ -1,0 +1,57 @@
+% 必要的包引入
+\RequirePackage{graphicx} % 图片
+\RequirePackage{ctex} % 中文支持
+\RequirePackage{xcolor} % 颜色
+\RequirePackage{float} % 浮动
+\RequirePackage{textpos}
+\RequirePackage{algorithm,algorithmic}
+\usefonttheme[onlymath]{serif} % 数学字体
+
+% 自定义字体设置
+\setbeamerfont{title}{size=\Large}
+\setbeamerfont{author}{size=\Large}
+\setbeamerfont{title}{size=\Large}
+
+% 主题颜色设置
+\definecolor{ThemeColorDark}{RGB}{36, 59, 43}
+
+% 自定义颜色设置
+\setbeamercolor{title}{fg=ThemeColorDark}
+\setbeamercolor{author}{fg=ThemeColorDark}
+\setbeamercolor{institute}{fg=ThemeColorDark}
+\setbeamercolor{date}{fg=ThemeColorDark}
+\setbeamercolor{structure}{fg=ThemeColorDark}
+\setbeamercolor{navigation symbols}{fg=ThemeColorDark}
+
+% 自定义标题页面
+\setbeamertemplate{title page}{
+    % logo设置在左上角
+    \begin{textblock*}{3em}(-2.4em, 0.2em) % 强行指定右上角坐标
+        \includegraphics[width=3em]{logo.png}\hspace{\paperwidth}
+    \end{textblock*}
+    % 依次居中设置标题、答辩人、指导老师、单位
+    % \vspace{\vfill{}}
+    \vspace{3.5em}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.6\paperheight,dp=0pt,center]{title}
+        \begin{center}
+            \usebeamerfont{title}\inserttitle\\
+            % if subtitle is not empty, insert it
+            \ifx\insertsubtitle\empty\else\usebeamerfont{subtitle}\vskip0.5em%
+            \insertsubtitle\fi%
+            \vskip1.5em%
+            \usebeamerfont{author}\insertauthor\\
+            \vskip0.5em%
+            \usebeamerfont{institute}\insertinstitute\\
+            \vskip0.5em%
+            \usebeamerfont{date}\insertdate\hspace{10cm}
+        \end{center}
+    \end{beamercolorbox}
+    % \end{center}
+    % \vspace{\vfill}
+    % 日期设置在右下角
+    \begin{beamercolorbox}[wd=0.98\paperwidth,ht=0.5\paperheight,dp=0pt,right]{title}
+        \begin{flushright}
+            % 用中文年月日格式插入当天日期，右边距为0.5cm
+        \end{flushright}
+    \end{beamercolorbox}
+}

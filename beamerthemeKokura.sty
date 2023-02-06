@@ -9,6 +9,8 @@
 
 % 自定义字体设置
 \setbeamerfont{title}{size=\Large}
+\setbeamerfont{section in toc}{size=\large, series=\bfseries}
+\setbeamerfont{subsection in toc}{size=\small}
 
 % 主题颜色设置
 \definecolor{ThemeColorDark}{RGB}{36, 59, 43}
@@ -31,8 +33,7 @@
         \includegraphics[width=3em]{logo.png}\hspace{\paperwidth}
     \end{textblock*}
     % 依次居中设置标题、答辩人、指导老师、单位
-    % \vskip3em%
-    % \begin{beamercolorbox}[wd=\paperwidth,ht=0.5\paperheight,dp=0pt,center]{title}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.5\paperheight,dp=0pt,center]{title}
         \begin{center}
             \usebeamerfont{title}\inserttitle\\
             % if subtitle is not empty, insert it
@@ -45,7 +46,7 @@
             \vskip0.5em%
             \usebeamerfont{date}\insertdate\hspace{10cm}
         \end{center}
-    % \end{beamercolorbox}
+    \end{beamercolorbox}
     }
 }
 
@@ -53,7 +54,7 @@
 \setbeamertemplate{footline}{%
 \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{structure}%
     \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
     \end{beamercolorbox}%
     \hfill\makebox[0pt][r]{\insertframenumber/\inserttotalframenumber\hskip0.5em}%
@@ -81,17 +82,17 @@
     \advance\beamer@tempdim by \beamer@rightmargin%
     \hskip-\Gm@lmargin\hbox{%
       \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
-          \vbox{}\vskip-.75ex%
+          \vbox{}\vskip0.5ex%
           \leftskip0.3cm%
           \rightskip0.3cm plus1fil\leavevmode
-          \insertframetitle%
+          \textbf\insertframetitle%
           \ifx\insertframesubtitle\@empty%
             \strut\par%
           \else
             \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
           \fi%
           \nointerlineskip
-          \vbox{}%
+          \vbox{}\vspace{0.75ex}%
           \end{minipage}}%
       \beamer@tempdim=\ht\beamer@tempbox%
       \advance\beamer@tempdim by 2pt%
@@ -109,3 +110,9 @@
     \vskip-2pt
 }
 \makeatother
+
+% 当出现frame break时，不显示标题编号
+\setbeamertemplate{frametitle continuation}{}
+
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection \vskip0.5em}
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=1.5em\inserttocsubsection\\ \vskip0.5em}

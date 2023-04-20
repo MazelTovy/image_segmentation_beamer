@@ -5,12 +5,17 @@
 \RequirePackage{float} % 浮动
 \RequirePackage{textpos}
 \RequirePackage{algorithm,algorithmic}
+\RequirePackage{booktabs} % 表格
+\RequirePackage{makecell} % 单元格
+\RequirePackage{listings} % 代码高亮
 \usefonttheme[onlymath]{serif} % 数学字体
 
 % 自定义字体设置
 \setbeamerfont{title}{size=\Large}
 \setbeamerfont{section in toc}{size=\large, series=\bfseries}
 \setbeamerfont{subsection in toc}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{normal text}{size=\small}
 
 % 主题颜色设置
 \definecolor{ThemeColorDark}{RGB}{36, 59, 43}
@@ -24,6 +29,13 @@
 \setbeamercolor{structure}{fg=ThemeColorDark}
 \setbeamercolor{navigation symbols}{fg=ThemeColorDark}
 \setbeamercolor{frametitle}{ bg=ThemeColorDark, fg=white}
+
+%  frame中的小标题
+\newcommand{\header}[1]{%
+  \vskip0.2em%
+  \underline{\textcolor{ThemeColorDark}{\textbf{#1}}}
+  \vskip0.2em%
+}
 
 % 自定义标题页面
 \setbeamertemplate{title page}{
@@ -116,3 +128,7 @@
 
 \setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection \vskip0.5em}
 \setbeamertemplate{subsection in toc}{\leavevmode\leftskip=1.5em\inserttocsubsection\\ \vskip0.5em}
+
+\setbeamertemplate{caption}[numbered]
+
+\AtBeginDocument{\usebeamerfont{normal text}}

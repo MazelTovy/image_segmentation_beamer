@@ -18,8 +18,10 @@
 \setbeamerfont{normal text}{size=\small}
 
 % 主题颜色设置
-\definecolor{ThemeColorDark}{RGB}{36, 59, 43}
-\definecolor{ThemeColorMedium}{RGB}{67, 110, 80}
+%\definecolor{ThemeColorDark}{RGB}{36, 59, 43}
+\definecolor{ThemeColorDark}{RGB}{90, 35, 140}
+%\definecolor{ThemeColorMedium}{RGB}{67, 110, 80}
+\definecolor{ThemeColorMedium}{RGB}{159, 120, 184}
 
 % 自定义颜色设置
 \setbeamercolor{title}{fg=ThemeColorDark}
@@ -41,8 +43,8 @@
 \setbeamertemplate{title page}{
     \vbox{
     % logo设置在左上角
-    \begin{textblock*}{3em}(-2.4em, -4.4em) % 强行指定右上角坐标
-        \includegraphics[width=3em]{logo.png}\hspace{\paperwidth}
+    \begin{textblock*}{3em}(-2.4em, -4.5em) % 强行指定右上角坐标
+        \includegraphics[width=3em]{images/logo.png}\hspace{\paperwidth}
     \end{textblock*}
     % 依次居中设置标题、答辩人、指导老师、单位
     \begin{beamercolorbox}[wd=\paperwidth,ht=0.5\paperheight,dp=0pt,center]{title}
@@ -76,8 +78,8 @@
 % 自定义标题栏
 
 % 标题栏颜色渐变样式：ThemeColorMedium -> ThemeColorDark
-\colorlet{titleleft}{ThemeColorMedium}
-\colorlet{titleright}{ThemeColorDark}
+\colorlet{titleleft}{ThemeColorDark}
+\colorlet{titleright}{ThemeColorMedium}
 \makeatletter
 \pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{\paperheight}{%
   color(0pt)=(titleleft);
@@ -132,3 +134,10 @@
 \setbeamertemplate{caption}[numbered]
 
 \AtBeginDocument{\usebeamerfont{normal text}}
+
+% 1- Block title (background and text)
+\setbeamercolor{block title}{bg=ThemeColorDark, fg=white}
+
+% 2- Block body (background)
+\setbeamercolor{block body}{bg=white}
+\useinnertheme[shadow]{rounded}
